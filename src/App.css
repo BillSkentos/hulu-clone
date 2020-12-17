@@ -1,0 +1,39 @@
+body{
+  background-image:linear-gradient(to right,#051421,#042727);
+}
+
+
+.nav-container{
+  position: relative;
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.icon-container{
+  padding:15px;
+  width:auto;
+  display:flex;
+  flex-direction: row;
+}
+
+
+.icon-container > div{
+  color:white;
+  margin:3vh;
+}
+
+
+.icon:hover{
+  cursor:pointer;
+}
+
+.icon >img {
+  position:fixed;
+  top:0%;
+  left:80%;
+  width:20%;
+  height:auto;
+}
