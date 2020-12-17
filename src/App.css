@@ -1,39 +1,70 @@
-body{
-  background-image:linear-gradient(to right,#051421,#042727);
-}
+  body{
+    background-image:linear-gradient(to right,#051421,#042727);
+  }
 
 
-.nav-container{
-  position: relative;
-  height:auto;
-  width:100%;
-  display: flex;
-  flex-direction: row;
-}
+  .nav-container{
+    position: relative;
+    height:auto;
+    width:100%;
+  }
 
 
-.icon-container{
-  padding:15px;
-  width:auto;
-  display:flex;
-  flex-direction: row;
-}
+  .icon-container{
+    padding:15px;
+    width:auto;
+    display:flex;
+    flex-direction: row;
+    justify-content:flex-start;
+  }
+
+  .icon{
+    display:flex;
+    flex-direction:column;
+  }
 
 
-.icon-container > div{
-  color:white;
-  margin:3vh;
-}
+  .icon-container > div{
+    color:white;
+    margin:3.5vh; 
+  }
 
 
-.icon:hover{
-  cursor:pointer;
-}
+  .icon > .MuiSvgIcon-root{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+
+  .icon:hover{
+    cursor:pointer;
+  }
+   
+  .icon:hover .MuiSvgIcon-root{
+    transform: scale(1.2);
+  }
+
+  .icon:hover  p{
+    visibility: visible;
+  }
+
+  .icon > * {
+    display: inline;
+  }
+
+  .icon > p{
+    visibility:hidden;
+    text-transform: uppercase;
+  }
+
+  .active > p{
+    visibility: visible;
+  }
 
 .icon >img {
   position:fixed;
   top:0%;
   left:80%;
-  width:20%;
+  width:18%;
   height:auto;
 }

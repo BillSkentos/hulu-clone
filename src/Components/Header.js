@@ -7,11 +7,13 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import SearchIcon from '@material-ui/icons/Search';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
-export default function NavBar() {
+export default function Header() {
+  
+
   return (
     <div className="nav-container">
       <div className="icon-container">
-        <div className="icon">
+        <div className="icon active">
             <HomeIcon />
             <p>Home</p>
         </div>
