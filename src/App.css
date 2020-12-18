@@ -94,3 +94,38 @@
   opacity: 1;
   transform: scale(1.2);
 }
+
+.activeLink{
+  opacity:1;
+  transform: scale(1.2);
+}
+
+.movie-list{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top:20px;
+  margin-left:70px;
+}
+
+.movie-item{
+  padding:10px;
+  color: white;
+}
+
+.movie-item > *{
+  cursor: pointer;
+}
+
+.movie-item > img{
+  transition:transform 100ms;
+}
+
+.movie-item > img:hover{
+  transform: scale(1.2);
+}
+
+
+.movie-title{
+  font-size:20px;
+  font-weight: 500;
+}
