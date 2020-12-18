@@ -11,7 +11,7 @@ export default function Header() {
   
 
   return (
-    <div className="nav-container">
+    <div className="head-container">
       <div className="icon-container">
         <div className="icon active">
             <HomeIcon />
@@ -35,14 +35,13 @@ export default function Header() {
         </div>
         <div className="icon">
             <PersonOutlineIcon />
-            <p>Person</p>
+            <p>Account</p>
         </div>
 
-        <div className="icon">
+        <div className="icon logo">
           <img alt = "hulu-logo" src = "https://press.hulu.com/wp-content/uploads/2020/02/hulu-white.png" />
         </div>
       </div>
-      
       
     </div>
   )
