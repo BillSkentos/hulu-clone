@@ -103,24 +103,22 @@
 .movie-list{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-top:20px;
+  margin-top:30px;
   margin-left:70px;
 }
 
 .movie-item{
   padding:10px;
   color: white;
+  transition: 100ms ease-in;
 }
 
 .movie-item > *{
   cursor: pointer;
 }
 
-.movie-item > img{
-  transition:transform 100ms;
-}
 
-.movie-item > img:hover{
+.movie-item:hover{
   transform: scale(1.2);
 }
 
@@ -128,4 +126,19 @@
 .movie-title{
   font-size:20px;
   font-weight: 500;
+}
+
+.movie-overview{
+  width:400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width:768px){
+  [class = "movie-list"]{
+    display: grid;
+    grid-template-columns: 1fr;  
+    margin-left:50px;
+  }
 }
