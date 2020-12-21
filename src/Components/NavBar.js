@@ -27,9 +27,14 @@ export default function NavBar() {
           {
               categories.map((item,index)=>{
                 let endPoint = index === 0 ? '/' : `/${item.replace(/\s/g,'')}`; //creates endpoint for link 
-                return <NavLink exact strict to = {endPoint} key = {index} className="category" activeClassName="activeLink">
-                        <h2 onClick = {()=>goToGenre(item)}>{item}</h2>
-                       </NavLink>;
+                    return <NavLink 
+                            onClick = {()=>goToGenre(item)} 
+                            exact strict to = {endPoint} key = {index} 
+                            className="category" 
+                            activeClassName="activeLink"
+                           >
+                              <h2 >{item}</h2>
+                          </NavLink>;
             })
           }
         </div>
