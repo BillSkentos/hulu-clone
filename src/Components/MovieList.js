@@ -1,20 +1,22 @@
 import React, { Fragment} from 'react';
 import useFetch from './useFetch';
 import '../App.css';
+import {useAppContext} from './Context';
 
 export default function MovieList() {
   
   const {movieTypes} = useFetch();
   const baseImgUrl = "https://image.tmdb.org/t/p";
   const size = "/w400";
-  const test  = "Top Rated";
+  const {selectedGenre} = useAppContext(); //active movie genre 
+  
 
-
+  //display movie list based on genre 
   return (
     <div className="movie-list">
          {
            movieTypes.map((type,index)=>{
-             if(type.Name === test ){
+             if(type.Name === selectedGenre ){
                  return (
                    <Fragment key = {index}>
                      {

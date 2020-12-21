@@ -32,8 +32,8 @@ export default function useFetch() {
       
       const promises = [];
       for(let i=0; i<specificTypes.length; i++) {
-        let response = await fetch(specificTypes[i].url);
-        let res = await response.json();
+        let response = await fetch(specificTypes[i].url).catch(err=>console.error(err));
+        let res = await response.json().catch(err=>console.error(err));
         let genre = {'Name' : specificTypes[i].Type , 'Movies': res.results };  //genre with all movies 
         promises.push(genre);
       }
