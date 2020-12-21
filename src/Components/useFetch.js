@@ -30,10 +30,14 @@ export default function useFetch() {
     
     const fetchSpecificTypes = async ()=>{
       
-      const results = await Promise.all(specificTypes.map(type => fetch(type.url)));
-      const results2 = await Promise.all(results.map(res => res.json()));
-      const movies = results2.map(res => res.results);
-      setMovieTypes(movies);
+      const promises = [];
+      for(let i=0; i<specificTypes.length; i++) {
+        let response = await fetch(specificTypes[i].url);
+        let res = await response.json();
+        let genre = {'Name' : specificTypes[i].Type , 'Movies': res.results };  //genre with all movies 
+        promises.push(genre);
+      }
+      setMovieTypes(promises);
     } 
 
     fetchSpecificTypes();
