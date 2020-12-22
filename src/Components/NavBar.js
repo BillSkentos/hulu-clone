@@ -18,7 +18,7 @@ export default function NavBar() {
   
   //create categories  of movies to navigate 
   let categories = ['Trending' , 'Top Rated' , 'Action' , 'Comedy' , 'Horror' , 'Romance' , 
-  'Mystery' , 'Sci-Fi' , 'Western' , 'Animation' , 'TV Movie' ];
+  'Mystery' , 'Science Fiction' , 'Western' , 'Animation' , 'TV Movie' ];
 
   return (
     <>

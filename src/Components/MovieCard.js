@@ -1,12 +1,16 @@
 import React ,{forwardRef} from 'react';
 
-const  MovieCard = forwardRef((props,ref) => {
+const  MovieCard = forwardRef(({movie},ref) => {
   
+  const baseImgUrl = "https://image.tmdb.org/t/p";
+  const size = "/w400";
+  let path = baseImgUrl + size + movie.backdrop_path;
+
   return (
-    <div ref = {ref} className="movie-item">
-      <img alt = "movie" src = {props.path}/>
-      <h4 className="movie-overview"> {props.overview}</h4>
-      <p className="movie-title">{props.title}</p> 
+    <div className="movie-item" ref = {ref}>
+      <img alt = "movie" src = {path}/>
+      <h4 className="movie-overview"> {movie.overview}</h4>
+      <p className="movie-title">{movie.title}</p> 
     </div>
                              
   );

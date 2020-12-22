@@ -5,7 +5,6 @@ export default function useFetch() {
 
   const key = process.env.REACT_APP_API_KEY;
 
-  // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=28`;
   
   const specificTypes = [
     {'Type':'Top Rated', 'url' :`https://api.themoviedb.org/3/movie/top_rated?api_key=${key}`},
@@ -28,19 +27,31 @@ export default function useFetch() {
 
   useEffect(()=>{
     
-    const fetchSpecificTypes = async ()=>{
+    const fetchMovies = async ()=>{
       
-      const promises = [];
+      const promises = []; //array to store movie objects 
+
+      //fetch trending and top rated  -----------------------------------------------------------------------------------
       for(let i=0; i<specificTypes.length; i++) {
         let response = await fetch(specificTypes[i].url).catch(err=>console.error(err));
         let res = await response.json().catch(err=>console.error(err));
         let genre = {'Name' : specificTypes[i].Type , 'Movies': res.results };  //genre with all movies 
         promises.push(genre);
       }
+
+      //fetch by normal genre type --------------------------------------------------------------------------------------
+      for(let i=0; i<genres.length; i++) {
+        let url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=${genres[i].id}`;
+        let response = await fetch(url).catch(err=>console.error(err));
+        let res = await response.json().catch(err=>console.error(err));
+        let genre = {'Name' : genres[i].Name , 'Movies': res.results };  //genre with all movies 
+        promises.push(genre);
+      }
+      
       setMovieTypes(promises);
     } 
 
-    fetchSpecificTypes();
+    fetchMovies();
 
   },[]);
 
