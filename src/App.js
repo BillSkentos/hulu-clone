@@ -2,9 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header';
 import NavBar from './Components/NavBar';
-import MovieList from './Components/MovieList';
 import ContextProvider from './Components/Context';
-
+import FetchResults from './Components/FetchResults';
 function App() {
 
   return (
@@ -12,7 +11,7 @@ function App() {
       <div className="App">
         <Header />
         <NavBar />
-        <MovieList />
+        <FetchResults />
       </div>
     </ContextProvider>  
     

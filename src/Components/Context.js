@@ -1,10 +1,11 @@
-import {createContext, React,useContext,useState,useEffect} from 'react';
+import {createContext, React,useContext,useState} from 'react';
+import genreLinks from './Genres';
 
 const AppContext = createContext();
 
 export default function ContextProvider(props) {
   
-  const [selectedGenre,setSelectedGenre]= useState('Trending');
+  const [selectedGenre,setSelectedGenre]= useState(genreLinks.fetchTrending);
   
   const values = {
     selectedGenre,

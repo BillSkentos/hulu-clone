@@ -112,12 +112,19 @@
   padding:10px;
   color: white;
   transition: 250ms;
+  object-fit: contain;
 }
 
 .movie-item > *{
   cursor: pointer;
 }
 
+.movie-item >img{
+  width:400px;
+  height:225px;
+  object-fit: contain;
+
+}
 
 .movie-item:hover{
   transform: scale(1.09);

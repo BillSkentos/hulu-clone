@@ -7,18 +7,35 @@ import {
   NavLink
 } from "react-router-dom";
 import {useAppContext} from './Context';
+import genreLinks from './Genres';
 
 export default function NavBar() {
    
   const {selectedGenre,setSelectedGenre} = useAppContext();
 
   const goToGenre = (genre)=>{
-    setSelectedGenre(genre);
+    //remove '/' from genre   
+    genre = genre.slice(1);
+
+    let genreUrl = `fetch${genre}`;
+    if (genreUrl === 'fetch'){
+      genreUrl = 'fetchTrending';
+    }
+    
+    for (let [key,value] of Object.entries(genreLinks)){
+      if(genreUrl === key){ 
+        setSelectedGenre(value);
+      }
+    }
+  
   }
+    
+
+  
   
   //create categories  of movies to navigate 
   let categories = ['Trending' , 'Top Rated' , 'Action' , 'Comedy' , 'Horror' , 'Romance' , 
-  'Mystery' , 'Science Fiction' , 'Western' , 'Animation' , 'TV Movie' ];
+  'Mystery' , 'Science Fiction' , 'Western' , 'Animation' , 'Tv Movie' ];
 
   return (
     <>
@@ -28,7 +45,7 @@ export default function NavBar() {
               categories.map((item,index)=>{
                 let endPoint = index === 0 ? '/' : `/${item.replace(/\s/g,'')}`; //creates endpoint for link 
                     return <NavLink 
-                            onClick = {()=>goToGenre(item)} 
+                            onClick = {()=>goToGenre(endPoint)} 
                             exact strict to = {endPoint} key = {index} 
                             className="category" 
                             activeClassName="activeLink"
